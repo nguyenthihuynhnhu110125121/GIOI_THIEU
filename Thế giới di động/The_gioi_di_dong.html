@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao diện Thế Giới Di Động</title>
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        /* --- HEADER SIMULATION (Thanh tìm kiếm màu vàng) --- */
+        header {
+            background-color: #ffd400;
+            padding: 10px 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .header-menu {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .header-menu a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* --- MAIN CONTENT CONTAINER --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        /* --- SECTION: MỌI NGƯỜI CŨNG TÌM KIẾM --- */
+        .popular-searches {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+        }
+
+        .search-tag {
+            font-size: 13px;
+            color: #4a4a4a;
+            text-decoration: none;
+            background-color: #f1f1f1;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .search-tag:hover {
+            background-color: #e0e0e0;
+            color: #288ad6;
+        }
+
+        /* Đường chia cắt mảnh */
+        .divider {
+            border: 0;
+            border-top: 1px solid #f1f1f1;
+            margin: 25px 0;
+        }
+
+        /* --- SECTION: FOOTER (THÔNG TIN HỖ TRỢ) --- */
+        .footer-grid {
+display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .footer-col h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-list {
+            list-style: none;
+        }
+
+        .footer-list li {
+            font-size: 13px;
+            line-height: 24px;
+            margin-bottom: 6px;
+            color: #4a4a4a;
+        }
+
+        .footer-list li a {
+            color: #288ad6;
+            text-decoration: none;
+        }
+
+        .footer-list li a:hover {
+            text-decoration: underline;
+        }
+
+        .phone-num {
+            font-weight: bold;
+            color: #288ad6;
+        }
+
+        .view-more {
+            color: #288ad6;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        /* Khối lưới các thương hiệu thành viên */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .brand-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            height: 32px;
+            border-radius: 4px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Định dạng màu sắc mô phỏng các logo */
+        .topzone { background-color: #111; }
+        .dienmayxanh { background-color: #126caf; }
+        .bachhoaxanh { background-color: #008848; }
+        .ankhang { background-color: #005a9e; }
+
+        /* --- RESPONSIVE (Tự động co giãn theo thiết bị) --- */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .search-box {
+                margin: 5px 0;
+                width: 100%;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">thegioididong</a>
+            <div class="search-box">
+                <input type="text" placeholder="Vivo X300 Ultra...">
+            </div>
+            <div class="header-menu">
+                <a href="#">Đăng nhập</a>
+                <a href="#">Giỏ hàng</a>
+                <a href="#">Hồ Chí Minh</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Bán Hàng</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+header{
+    background:#ffd500;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.search{
+    width:40%;
+    padding:10px;
+    border:none;
+    border-radius:20px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:black;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+.banner{
+    width:100%;
+    height:250px;
+    background:url('https://picsum.photos/1200/250') center/cover;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin:10px 0;
+}
+
+.price{
+    color:red;
+    font-size:20px;
+    font-weight:bold;
+}
+
+button{
+    background:#ffd500;
+    border:none;
+    padding:10px 20px;
+    margin-top:10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">SHOP ONLINE</div>
+
+    <input type="text" class="search" placeholder="Tìm sản phẩm...">
+
+    <div class="menu">
+        <a href="#">Trang chủ</a>
+        <a href="#">Sản phẩm</a>
+        <a href="#">Giỏ hàng</a>
+        <a href="#">Liên hệ</a>
+    </div>
+</header>
+
+<div class="banner"></div>
+
+<section class="products">
+
+    <div class="card">
+        <img src="c:\Users\HP\Downloads\z7893392267442_26a416ceda664e4758be62762fcf81e5 IP15.jpg">
+        <h3>iPhone 15</h3>
+        <p class="price">20.990.000đ</p>
+        <button>Mua ngay</button>
+    </div>
+
+    <div class="card">
+        <img src="c:\Users\HP\Downloads\z7893393129475_b08bb99d08fc6a19c5b808f985c0fa05_S24.jpg">
+        <h3>Samsung S24</h3>
+        <p class="price">18.990.000đ</p>
+        <button>Mua ngay</button>
+    </div>
+
+    <div class="card">
+        <img src="c:\Users\HP\Downloads\z7893393845453_25c598075e41db7a7c8e496fca069f27_XIAOMI.jpg">
+        <h3>Xiaomi 15</h3>
+        <p class="price">12.990.000đ</p>
+        <button>Mua ngay</button>
+    </div>
+
+    <div class="card">
+        <img src="c:\Users\HP\Downloads\z7893398254792_f7e4d0b0971bf13fb087209a253716a9.jpg">
+        <h3>OPPO Reno</h3>
+        <p class="price">9.990.000đ</p>
+        <button>Mua ngay</button>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Website Bán Hàng
+</footer>
+
+</body>
+</html>
+
+        
+        <section class="popular-searches">
+<h2 class="section-title">Mọi người cũng tìm kiếm</h2>
+            <div class="tags-container">
+                <a href="#" class="search-tag">laptop</a>
+                <a href="#" class="search-tag">tai nghe</a>
+                <a href="#" class="search-tag">đồng hồ</a>
+                <a href="#" class="search-tag">pc</a>
+                <a href="#" class="search-tag">macbook</a>
+                <a href="#" class="search-tag">dell</a>
+                <a href="#" class="search-tag">asus</a>
+                <a href="#" class="search-tag">điện thoại xiaomi</a>
+                <a href="#" class="search-tag">orient star</a>
+                <a href="#" class="search-tag">loa marshall</a>
+                <a href="#" class="search-tag">loa jbl</a>
+                <a href="#" class="search-tag">đồng hồ movado</a>
+                <a href="#" class="search-tag">laptop gaming</a>
+                <a href="#" class="search-tag">chuột gaming</a>
+                <a href="#" class="search-tag">đồng hồ đôi</a>
+                <a href="#" class="search-tag">laptop đồ họa</a>
+                <a href="#" class="search-tag">iphone 15</a>
+                <a href="#" class="search-tag">iphone 16</a>
+                <a href="#" class="search-tag">iphone 17</a>
+                <a href="#" class="search-tag">lenovo legion</a>
+                <a href="#" class="search-tag">lenovo thinkpad</a>
+                <a href="#" class="search-tag">iphone 16 Pro Max</a>
+                <a href="#" class="search-tag">samsung galaxy s26 ultra</a>
+                <a href="#" class="search-tag">OPPO Find X9 Ultra</a>
+                <a href="#" class="search-tag">Xiaomi 17T Pro</a>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <footer class="footer-grid">
+            <div class="footer-col">
+                <h3>Tổng đài hỗ trợ</h3>
+                <ul class="footer-list">
+                    <li>Gọi mua: <a href="tel:123456789" class="phone-num">987654321</a> (8:00 - 21:30)</li>
+                    <li>Khiếu nại: <a href="tel:11223344" class="phone-num">44332211</a> (8:00 - 21:30)</li>
+                    <li>Bảo hành: <a href="tel:66778899" class="phone-num">99887766</a>(8:00-17:00)
