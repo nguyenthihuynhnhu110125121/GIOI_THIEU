@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danh Sách Bài Tập</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url("https://images.unsplash.com/photo-1519681393784-d120267933ba")
+    center/cover no-repeat;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(255,192,203,0.2);
+    backdrop-filter:blur(2px);
+}
+
+.container{
+    position:relative;
+    width:500px;
+    padding:30px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.3);
+    box-shadow:0 8px 32px rgba(255,105,180,.3);
+    color:#fff;
+}
+
+.status{
+    color:#7CFC98;
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+h1{
+    margin:10px 0;
+    font-size:38px;
+}
+
+.subtitle{
+    color:#fdf2f8;
+    margin-bottom:20px;
+}
+
+.stats{
+    display:flex;
+    justify-content:space-between;
+    padding:15px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.1);
+    margin-bottom:20px;
+}
+
+.card{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+    padding:15px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    background:rgba(255,255,255,0.2);
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    color:#fff;
+}
+
+.i1{background:#ff66c4;}
+.i2{background:#ff4fa0;}
+.i3{background:#ff80bf;}
+.i4{background:#ff99cc;}
+.i5{background:#ffb6d9;}
+.i6{background:#ffb6d9;}
+
+.small{
+    font-size:12px;
+    opacity:.8;
+}
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#fff;
+}
+
+.time{
+    font-size:13px;
+    opacity:.8;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="status">
+🟢 Hệ thống đang hoạt động
+</div>
+
+<h3>🌸 Chào buổi sáng!</h3>
+<h1>Danh sách bài tập</h1>
+
+<p class="subtitle">
+Website tổng hợp các bài tập và dự án.
+</p>
+
+<div class="stats">
+<div><b>5</b><br>Dự án</div>
+<div><b>3</b><br>Ngôn ngữ</div>
+<div><b>100%</b><br>Nỗ lực</div>
+</div>
+
+<div class="card">
+<div class="icon i1">
+<i class="fa-solid fa-book"></i>
+</div>
+<div>
+    <a href="d:\Bài thơ.html" target="_blank" style="text-decoration: none; color: inherit;">
+  <!-- Giữ nguyên phần code hiển thị Bài tập 1 của bạn ở đây -->
+  <div class="bai-tap-1">
+    <span>BÀI TẬP 1</span>
+    <p>Bài thơ</p>
+  </div>
+</a>
+</div>
+</div>
+
+<div class="card">
+<div class="icon i2">
+<i class="fa-solid fa-music"></i>
+</div>
+<div>
+    <a href="d:\Bài hát.html" target="_blank" style="text-decoration: none; color: inherit;">
+  <!-- Giữ nguyên phần code hiển thị Bài tập 1 của bạn ở đây -->
+<div class="small">BÀI TẬP 2</div>
+<h3>Web âm nhạc</h3>
+</div>
+</div>
+
+<div class="card">
+<div class="icon i3">
+<i class="fa-solid fa-user"></i>
+</div>
+<div>
+    <a href="d:\BAI3_Gioithieubanthan\gioithieubanthan.html" target="_blank" style="text-decoration: none; color: inherit;">
+  <!-- Giữ nguyên phần code hiển thị Bài tập 1 của bạn ở đây -->
+<div class="small">BÀI TẬP 3</div>
+<h3>Giới thiệu bản thân</h3>
+</div>
+</div>
+
+<div class="card">
+<div class="icon i4">
+<i class="fa-solid fa-lock"></i>
+</div>
+<div>
+    <a href="d:\BAI3_Gioithieubanthan\trang Login.html" target="_blank" style="text-decoration: none; color: inherit;">
+  <!-- Giữ nguyên phần code hiển thị Bài tập 1 của bạn ở đây -->
+<div class="small">BÀI TẬP 4</div>
+<h3>Trang Login</h3>
+</div>
+</div>
+
+<div class="card">
+<div class="icon i5">
+<i class="fa-solid fa-file"></i>
+</div>
+<div>
+    <a href="d:\BAI3_Gioithieubanthan\Đăng kí dự thi.html" target="_blank" style="text-decoration: none; color: inherit;">
+  <!-- Giữ nguyên phần code hiển thị Bài tập 1 của bạn ở đây -->
+<div class="small">BÀI TẬP 5</div>
+<h3>Đăng ký dự thi</h3>
+</div>
+</div>
+<a href="e:\The_gioi_di_dong.html" target="_blank" style="text-decoration: none; color: inherit;">
+  <!-- Giữ nguyên phần code hiển thị Bài tập 1 của bạn ở đây -->
+<div class="small">BÀI TẬP 6</div>
+<h3>Thế giới di động</h3>
+<div>
+</div>
+<div class="icon i5">
+<i class="fa-solid fa-file"></i>
+</div>
+<div>
+<div class="footer">
+<b>Huỳnh Như</b>
+<div class="time" id="clock"></div>
+</div>
+
+</div>
+
+<script>
+function updateClock(){
+    const now = new Date();
+    document.getElementById("clock").innerHTML =
+    now.toLocaleTimeString("vi-VN") +
+    " - " +
+    now.toLocaleDateString("vi-VN");
+}
+setInterval(updateClock,1000);
+updateClock();
+</script>
+
+</body>
+</html>
