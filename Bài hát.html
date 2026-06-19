@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trình phát nhạc</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .player-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .album-art {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            animation: rotate 10s linear infinite paused;
+        }
+
+        .album-art.playing {
+            animation-play-state: running;
+        }
+
+        .album-art img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .song-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .artist-name {
+            color: #a0a0a0;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.2);
+            height: 6px;
+            border-radius: 3px;
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            background: #4cc9f0;
+            height: 100%;
+            width: 0%;
+            border-radius: 3px;
+            transition: width 0.1s linear;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .btn:hover {
+            color: #4cc9f0;
+        }
+
+        .btn-play {
+            font-size: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<audio id="song">
+    <source src="https://chiasenhac.com" type="audio/mpeg">
+</audio>
+    <div class="player-card">
+        <!-- Ảnh bài hát -->
+        <div class="album-art" id="albumArt">
+            <img src="URL_ANH_CUA_BAN" alt="Album Art">
+        </div>
+
+        <!-- Tên bài hát và Ca sĩ -->
+        <div class="song-title=">CẢM ƠN NHÀ</div>
+        <div class="artist-name">Ca sĩ:Hoàng Dũng ft.Suni Hạ Linh</div>
+        <audio id="song">
+    <source src="https://zingmp3.vn/bai-hat/Cam-On-Nha-Hoang-Dung-Suni-Ha-Linh/ZUFCEDEC.html" type="audio/mpeg">
+</audio>
+
+        <!-- Thanh tiến trình -->
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Thời gian -->
+        <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+
+        <!-- Nút điều khiển -->
+        <div class="controls">
+            <button class="btn" id="prevBtn"><i class="fas fa-backward"></i></button>
+            <button class="btn btn-play" id="playBtn"><i class="fas fa-play"></i></button>
+            <button class="btn" id="nextBtn"><i class="fas fa-forward"></i></button>
+        </div>
+    </div>
+
+    <!-- Nạp thư viện icon của FontAwesome -->
+    <script src="https://cloudflare.com"></script>
+    <script>
+        const audio = new Audio('URL_BAI_HAT.mp3');
+        const playBtn = document.getElementById('playBtn');
+        const albumArt = document.getElementById('albumArt');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+
+        // Hàm phát hoặc tạm dừng nhạc
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                albumArt.classList.add('playing');
+            } else {
+                audio.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                albumArt.classList.remove('playing');
+            }
+        }
+
+        // Cập nhật thanh tiến trình
+        audio.addEventListener('timeupdate', (e) => {
+            const { currentTime, duration } = e.target;
+            const progressPercent = (currentTime / duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+
+            // Cập nhật hiển thị thời gian
+            const currentMinutes = Math.floor(currentTime / 60);
+            const currentSeconds = Math.floor(currentTime % 60);
+            if (currentSeconds < 10) {
+                currentTimeEl.textContent = `${currentMinutes}:0${currentSeconds}`;
+            } else {
+currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
+            }
+
+            // Hiển thị tổng thời gian
+            if (duration) {
+                const durationMinutes = Math.floor(duration / 60);
+                const durationSeconds = Math.floor(duration % 60);
+                durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
+            }
+        });
+
+        // Tua nhạc khi bấm vào thanh tiến trình
+        progressContainer.addEventListener('click', (e) => {
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        });
+
+        // Bắt sự kiện click nút play
+        playBtn.addEventListener('click', togglePlay);
+    </script>
+</body>
+</html>
