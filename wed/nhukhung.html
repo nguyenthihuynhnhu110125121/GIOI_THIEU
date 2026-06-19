@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+     /* Thêm màu nền xanh nhạt cho toàn bộ trang */
+    body {
+      background-color: #e3fdf4;
+    }
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">TRANG CHỦ</a></li>
+        <li><a href="BUON.html">SỞ THÍCH</a></li>
+        <li><a href="VUI.html">BẠN BÈ</a></li>
+        <li><a href="https://sites.google.com/view/nhukhungdienlao">LIÊN HỆ</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="https://www.facebook.com/share/1DwcpRmJjy/?mibextid=wwXIfr">FACEBOOK</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>BONJPUR</h1> <p>mình là Huỳnh Như, năm nay mình 19 tuổi. Hiện tại, mình đang là sinh viên ngành Công nghệ thông tin tại Trường Đại học Trà Vinh. Là con gái học IT nghe có vẻ khô khan vậy thôi chứ bên ngoài mình là một người cực kỳ năng động và có phần hơi... 'mít ướt', rất dễ xúc động và dễ khóc luôn á! Sở thích lớn nhất của mình là được đi chơi, đi vi vu khắp nơi cùng bạn bè. Ngoài ra, mình cũng rất thích chơi thể thao, đặc biệt là bộ môn cầu lông. Rất vui được làm quen và kết bạn với tất cả mọi người!"</p>
+      <hr>
+      <h3>Test</h3>
+      <p>Lorem ipsum...</p>
+    </div>
+    
+    <div class="col-sm-2 sidenav">
+      <div class="nhu" style="margin-bottom: 15px;">
+        <img src="NHUNGAO.jpg" alt="" class="img-responsive center-block">
+      </div>
+      <div class="well">
+        <img src="ĐIEN.jpg" alt="" class="img-responsive center-block">
+      </div>
+    </div>
+    </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>SDT:09*******9/
+  fb:HUYNHNHU/
+CHƯA CÓ NGƯỜI YÊU AI TÁN YÊU LUÔN</p>
+</footer>
+
+</body>
+</html>
