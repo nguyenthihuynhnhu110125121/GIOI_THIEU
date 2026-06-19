@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao Diện Đăng Nhập</title>
+    <style>
+        /* Định dạng chung cho toàn bộ trang */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Khung chứa form mô phỏng theo ảnh mẫu */
+        .login-box {
+            background-color: #f2f2f2;
+            width: 350px;
+            padding: 25px;
+            /* Tạo viền dày màu xanh lá bao quanh */
+            border: 12px solid #009345; 
+            box-sizing: border-box;
+        }
+
+        /* Tiêu đề Đăng nhập */
+        .login-box h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* Các ô nhập dữ liệu text/password */
+        .input-field {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #a3a3a3;
+            background-color: #ffffff;
+            padding: 5px 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        /* Nhãn chữ nằm ngay dưới ô nhập liệu giống trong ảnh */
+        .input-label {
+            display: block;
+            font-size: 15px;
+            margin-top: 4px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        /* Khu vực nút chọn Radio và Checkbox */
+        .options-group {
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .options-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .options-group input {
+            margin-right: 8px;
+            transform: scale(1.1);
+        }
+
+        /* Nút Đăng nhập màu xanh lá */
+        .btn-submit {
+            width: 100%;
+            background-color: #009345;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        /* Hiệu ứng đổi màu nhẹ khi di chuột vào nút */
+        .btn-submit:hover {
+            background-color: #007536;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Đăng nhập</h2>
+        
+        <form action="#" method="POST">
+            <!-- Ô nhập tên đăng nhập -->
+            <input type="text" class="input-field" required>
+            <span class="input-label">Tên đăng nhập</span>
+            
+            <!-- Ô nhập mật khẩu -->
+            <input type="password" class="input-field" required>
+<span class="input-label">Mật khẩu</span>
+            
+            <!-- Khu vực tùy chọn -->
+            <div class="options-group">
+                <label>
+                    <input type="radio" name="gender" value="nam" checked> Nam
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="nu"> Nữ
+                </label>
+                <label style="margin-top: 12px;">
+                    <input type="checkbox" name="remember"> Lưu giá trị đăng nhập
+                </label>
+            </div>
+            
+            <!-- Nút bấm -->
+            <button type="submit" class="btn-submit">Đăng nhập</button>
+        </form>
+    </div>
+
+</body>
+</html>
